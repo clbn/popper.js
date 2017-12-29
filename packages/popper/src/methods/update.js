@@ -2,6 +2,7 @@ import computeAutoPlacement from '../utils/computeAutoPlacement';
 import getReferenceOffsets from '../utils/getReferenceOffsets';
 import getPopperOffsets from '../utils/getPopperOffsets';
 import runModifiers from '../utils/runModifiers';
+import getSupportedPropertyName from '../utils/getSupportedPropertyName';
 
 /**
  * Updates the position of the popper, computing the new offsets and applying
@@ -24,6 +25,8 @@ export default function update() {
     flipped: false,
     offsets: {},
   };
+
+  this.popper.style[getSupportedPropertyName('transform')] = '';
 
   // compute reference element offsets
   data.offsets.reference = getReferenceOffsets(
